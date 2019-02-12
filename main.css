@@ -1,0 +1,14 @@
+.container {
+    position: relative;
+}
+
+#textContainer {
+    position: absolute;
+    left: 400px;
+    top: 250px;
+    font-family: "Comic Sans MS", cursive, sans-serif;
+    font-size: 30px;
+    color: #D3D3D3;
+    text-transform: uppercase;
+    line-height: 3.8;
+}

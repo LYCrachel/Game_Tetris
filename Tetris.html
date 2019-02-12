@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+ <head>
+ 	<title>Tetris</title>
+	<link rel="stylesheet" type="text/css" href="main.css">
+ </head>
+ <body >
+ 	<div class="contrainer">
+	 	<canvas id="gl-canvas" width="600" height="600">
+			Oops ... your browser doesn't support the HTML5 canvas element
+		</canvas>
+		<div id="textContainer" class="text">
+	    	<div>Your score: <span id="score"></span></div>
+	    	<div><span id="alert"></span></div>
+	  	</div>
+ </body>
+
+	<script id="vertex-shader" type="x-shader/x-vertex">
+		attribute vec4 vPosition;
+		uniform vec2 rotation;
+		void main() {
+    		gl_Position = vPosition;
+    		vec4 rotatedPosition = vec4(
+     			vPosition[0] * rotation[1] + vPosition[1] * rotation[0],
+     			vPosition[1] * rotation[1] - vPosition[0] * rotation[0], 0, 1);
+			}
+	</script>
+
+	<script id="fragment-shader" type="x-shader/x-fragment">
+		precision mediump float;
+		uniform vec4 fColor;
+		void main(){
+    		gl_FragColor = fColor;
+		}
+	</script>
+	<script type="text/javascript" src="Common/webgl-utils.js"></script>
+	<script type="text/javascript" src="Common/initShaders.js"></script>
+	<script type="text/javascript" src="Common/MV.js"></script>
+	<script type="text/javascript" src="tiles.js"></script>
+	<script type="text/javascript" src="Tetris.js"></script>
+</html>
